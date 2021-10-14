@@ -17,7 +17,7 @@ class CreateFoodTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->unsignedInteger('price');
+            $table->decimal('price', 10, 2);
             $table->foreignId('restaurant_id');
             $table->timestamps();
         });

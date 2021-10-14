@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RestaurantRequest;
+use App\Models\Food;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
@@ -23,9 +25,11 @@ class RestaurantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RestaurantRequest $request)
     {
-        //
+        $restaurant = Restaurant::create($request->all());
+
+        return redirect()->route('restaurants.details', compact('restaurant'));
     }
 
     /**
@@ -36,7 +40,8 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        $foods = Food::where('restaurant_id', $restaurant->id)->get();
+        return view('restaurants.details')->with(compact('restaurant', 'foods'));
     }
 
     /**
