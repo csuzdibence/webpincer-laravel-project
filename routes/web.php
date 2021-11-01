@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\RestaurantController;
+use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,5 +36,8 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/createRestaurant', [RestaurantController::class, 'store']);
     Route::get('/createFood', [FoodController::class, 'create'])->name('food.create');
     Route::post('/createFood', [FoodController::class, 'store']);
-
+    Route::get('/restaurant/{restaurant}/edit', [RestaurantController::class, 'edit'])->name('restaurant.edit');
+    Route::post('/restaurant/{restaurant}/edit', [RestaurantController::class, 'update']);
+    Route::post('/restaurant/{restaurant}/comment', [RestaurantController::class, 'comment'])->name('restaurants.comment');
+    Route::post('/resutarant/{restaurant}/image', [RestaurantController::class, 'uploadImage'])->name('restaurant.image');
 });

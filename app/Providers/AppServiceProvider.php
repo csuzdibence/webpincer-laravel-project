@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Restaurant;
+use App\Models\Comment;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Relation::enforceMorphMap([
+
+            'restaurant' => Restaurant::class,
+            'reply' => Comment::class,
+        ]);
     }
 }

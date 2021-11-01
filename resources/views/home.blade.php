@@ -19,11 +19,16 @@
         <div class="card-header">
           <a class="btn btn-lg btn-link text-danger" href="/restaurant/{{$restaurant->id}}">{{$restaurant->name}}</a>
         </div>
-        <div class="card-body">
+        <div class="card-body d-flex justify-content-center flex-wrap justify-content-md-between">
+          <div>
+            <img class="flex-shrink-0 flex-grow-0 image-cover" src="{{ $restaurant->cover_image }}" width="150" height="150" alt="{{ $restaurant->name }}">
+          </div>
+          <div>
             <p>{{__('Owner\'s name:')}} {{$restaurant->ownerName}}</p>
-            <p>{{__('Member since: ')}} {{$restaurant->created_at->diffForHumans()}}</p>         
+            <p>{{__('Member since: ')}} {{$restaurant->created_at->diffForHumans()}}</p> 
+          </div>        
         </div>
       </div>
     @endforeach
-    
+    {{$restaurants->links()}}
 @endsection

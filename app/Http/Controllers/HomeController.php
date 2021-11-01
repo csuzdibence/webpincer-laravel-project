@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::orderBy('name')->simplePaginate(5);
         return view('home')->with(compact('restaurants'));
     }
 }
