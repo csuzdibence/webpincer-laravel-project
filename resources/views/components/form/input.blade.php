@@ -1,13 +1,17 @@
-<div>
-    @if ($label)        
-        <label for="{{$name}}">
-            {{$label}}
-        </label>
-    @endif
-    <input type="{{ $type }}" class="form-control @error($name) is-invalid @enderror" name="{{$name}}" value="{{ old($name) }}">
-    @error($name)
+@if($label)
+<label for="{{ $name }}">
+    {{ $label }}
+</label>
+@endif
+
+<input
+    type="{{ $type }}"
+    class="form-control{{ $errors->has($name) ? ' is-invalid' : '' }}"
+    name="{{ $name }}"
+    value="{{ old($name, $value) }}"
+/>
+@error($name)
     <div class="invalid-feedback">
-        {{$message}}
+        {{ $message }}
     </div>
-    @enderror
-</div>
+@enderror

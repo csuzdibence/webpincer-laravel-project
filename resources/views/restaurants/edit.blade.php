@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="mb-3">
-                        <x-form.input name="name" type="text" label="{{ __('Restaurant name') }}" value="{{$restaurant->name}}" />
+                        <x-form.input name="name" label="{{ __('Restaurant name') }}" value="{{$restaurant->name}}" />
                     </div>
                     <div class="mb-3">
                         <x-form.input name="ownerName" type="text" label="{{ __('Owner name') }}" value="{{$restaurant->ownerName}}" />

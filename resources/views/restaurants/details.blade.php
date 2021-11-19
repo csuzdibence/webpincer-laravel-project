@@ -5,15 +5,25 @@
 @endsection
 
 @section('content')
-    <div class="card mb-3"">
+    <div class="card mb-3 border-dark">
         <div class="card-body">
-            <h1>{{$restaurant->name}}</h1>
-            <p>{{__('Owner\'s name:')}} {{$restaurant->ownerName}}</p>
-            <p>{{__('Member since: ')}} {{$restaurant->created_at->diffForHumans()}}</p>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h1>{{$restaurant->name}}</h1>
+                    <p>{{__('Owner\'s name:')}} {{$restaurant->ownerName}}</p>
+                    <p>{{__('Member since: ')}} {{$restaurant->created_at->diffForHumans()}}</p>
+                </div>
+                <div>
+                    <a class="text-dark" href="/restaurant/{{$restaurant->id}}/edit"><i class="fas fa-cog h1"></i></a>
+                </div>
+            </div>
             @foreach ($foods as $food)
-                <div class="card">
+                <div class="card m-3 border border-danger">
                     <div class="card-body">
-                        <h5 class="text-danger">{{$food->name}}</h5>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <a href="/food/{{$food->id}}"><h5 class="text-danger">{{$food->name}}</h5></a>
+                            <i class="fas fa-drumstick-bite h1"></i>
+                        </div>                        
                         <h5>{{__('Price: ')}}{{$food->price}} Ft</h5>
                         <p>{{$food->description}}</p>
                     </div>

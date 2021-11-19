@@ -15,9 +15,10 @@
       @endauth
     </div>
     @foreach ($restaurants as $restaurant)
-      <div class="card mt-3 mb-3">
-        <div class="card-header">
+      <div class="card mt-3 mb-3 border-dark" >
+        <div class="card-header d-flex justify-content-start align-items-center">
           <a class="btn btn-lg btn-link text-danger" href="/restaurant/{{$restaurant->id}}">{{$restaurant->name}}</a>
+          <i class="fas fa-utensils h3"></i>
         </div>
         <div class="card-body d-flex justify-content-center flex-wrap justify-content-md-between">
           <div>
