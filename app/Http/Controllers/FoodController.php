@@ -22,7 +22,8 @@ class FoodController extends Controller
 
     public function store(FoodRequest $request)
     {
-        return redirect()->intended('/');
+        $food = Food::create($request->all());
+        return view('foods.details')->with(compact('food'));
     }
 
     public function show(Food $food)
@@ -39,9 +40,17 @@ class FoodController extends Controller
 
     public function up(FoodRequest $request, Food $food)
     {
-        dd('asd');
         $food->update($request->except('_token'));
 
         return redirect()->route('foods.edit', $food);
+    }
+
+    public function destroy(Food $food)
+    {
+
+        $food->delete();  
+
+        return redirect()->route('home');
+
     }
 }

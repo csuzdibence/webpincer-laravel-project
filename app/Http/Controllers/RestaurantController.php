@@ -95,7 +95,9 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();  
+
+        return redirect()->route('home');
     }
 
     public function uploadImage(Request $request, Restaurant $restaurant)

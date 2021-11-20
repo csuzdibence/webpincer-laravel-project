@@ -12,7 +12,9 @@
                 <h1>{{$food->name}}</h1>
                 <h2 class="font-weight-bold text-danger">{{__('Price:')}} {{$food->price}}</h2>
                 </div>
-                <div>
+                
+                <div class="border border-dark bg-light card d-flex flex-row justify-content-center align-items-center p-3 mb-3">
+                    <a class="text-danger" href="/food/{{$food->id}}/delete"><i class="fas fa-trash-alt h1"></i></a>
                     <a class="text-dark" href="/food/{{$food->id}}/edit"><i class="fas fa-cog h1"></i></a>
                 </div>
             </div>

@@ -39,6 +39,8 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/createFood', [FoodController::class, 'store']);
     Route::get('/food/{food}/edit', [FoodController::class, 'edit'])->name('food.edit');
     Route::post('/food/{food}/edit', [FoodController::class, 'up']);
+    Route::get('/food/{food}/delete', [FoodController::class, 'destroy']);    
+    Route::get('/restaurant/{restaurant}/delete', [RestaurantController::class, 'destroy']);
     Route::get('/restaurant/{restaurant}/edit', [RestaurantController::class, 'edit'])->name('restaurant.edit');
     Route::post('/restaurant/{restaurant}/edit', [RestaurantController::class, 'update']);
     Route::post('/restaurant/{restaurant}/comment', [RestaurantController::class, 'comment'])->name('restaurants.comment');

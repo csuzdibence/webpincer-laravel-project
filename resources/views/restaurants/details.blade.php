@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="card mb-3 border-dark">
+    <div class="card mb-3 border-dark bg-light">
         <div class="card-body">
             <div class="d-flex justify-content-between">
                 <div>
@@ -13,7 +13,8 @@
                     <p>{{__('Owner\'s name:')}} {{$restaurant->ownerName}}</p>
                     <p>{{__('Member since: ')}} {{$restaurant->created_at->diffForHumans()}}</p>
                 </div>
-                <div>
+                <div class="border border-dark bg-light card d-flex flex-row justify-content-center align-items-center p-3 mb-3">
+                    <a class="text-danger" href="/food/{{$restaurant->id}}/delete"><i class="fas fa-trash-alt h1"></i></a>
                     <a class="text-dark" href="/restaurant/{{$restaurant->id}}/edit"><i class="fas fa-cog h1"></i></a>
                 </div>
             </div>
@@ -32,9 +33,9 @@
             </div>
     </div>
 <div class="row">
-    <div class="col-md-8 col-lg-6 mx-auto" >
+    <div class="col-md-8 col-lg-6 mx-auto bg-light p-3" >
         @foreach ($restaurant->comments as $comment)
-        <div class="card mb-3">
+        <div class="card mb-3 border-dark">
             <div class="card-body">
                 <div class="mb-2">
                        <p > <span class="text-danger">{{ $comment->user->name }} </span> |
