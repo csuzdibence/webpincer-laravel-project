@@ -6,7 +6,20 @@
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+          <a href="{{route('cart')}}" class="btn btn-light btn-outline-dark"> 
+            <i class="fas fa-shopping-cart"></i> 
+            <span class="badge badge-danger text-danger">
+              @php
+                $sum = 0;
+                $cart = session()->get('cart');
+                foreach ($cart as $item)
+                {
+                    $sum += $item['quantity'];
+                }   
+              @endphp
+             {{$sum}}
+            </span>
+          </a>
         </form>
 
         <div class="text-end">

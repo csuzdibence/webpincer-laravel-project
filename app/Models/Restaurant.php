@@ -29,6 +29,6 @@ class Restaurant extends Model
         if ($this->has_image) {
             return "/uploads/{$this->image}";
         }
-        return 'https://via.placeholder.com/1500';
+        return 'https://via.placeholder.com/100';
     }
 }

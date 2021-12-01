@@ -14,8 +14,12 @@
                     <p>{{__('Member since: ')}} {{$restaurant->created_at->diffForHumans()}}</p>
                 </div>
                 <div class="border border-dark bg-light card d-flex flex-row justify-content-center align-items-center p-3 mb-3">
-                    <a class="text-danger" href="/food/{{$restaurant->id}}/delete"><i class="fas fa-trash-alt h1"></i></a>
-                    <a class="text-dark" href="/restaurant/{{$restaurant->id}}/edit"><i class="fas fa-cog h1"></i></a>
+                    <div class="bg-light d-flex justify-content-center align-items-center p-3">
+                    <a class="text-danger"   href="/restaurant/{{$restaurant->id}}/delete"><i onMouseOver="this.style.color='#000'" onmouseout="this.style.color='inherit'" class="fas fa-trash-alt h1"></i></a>
+                    </div>
+                    <div class="bg-light d-flex justify-content-center align-items-center p-3">
+                    <a class="text-danger"   href="/restaurant/{{$restaurant->id}}/edit"><i  onMouseOver="this.style.color='#000'" onmouseout="this.style.color='inherit'"  class="fas fa-cog h1"></i></a>
+                    </div>
                 </div>
             </div>
             @foreach ($foods as $food)
@@ -27,6 +31,7 @@
                         </div>                        
                         <h5>{{__('Price: ')}}{{$food->price}} Ft</h5>
                         <p>{{$food->description}}</p>
+                        <a href="/cart/{{$food->id}}"><h2 class="text-danger"><i onMouseOver="this.style.color='#000'" onmouseout="this.style.color='inherit'" class="fas fa-plus-circle"></i></h2></a>
                     </div>
                 </div>
             @endforeach

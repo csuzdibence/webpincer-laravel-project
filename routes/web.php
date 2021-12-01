@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\CartController;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,10 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function() {
+    Route::get('/cart', [CartController::class, 'show'])->name('cart');    
+    Route::get('/cart/{food}', [CartController::class, 'add'])->name('cart.add');    
+    Route::get('/cart/{food}/delete', [CartController::class, 'delete']);      
+    Route::get('/order', [CartController::class, 'order'])->name('order');
     Route::post('/logout', [SessionController::class, 'destroy'])->name('auth.logout');
     Route::get('/createRestaurant', [RestaurantController::class, 'create'])->name('restaurant.create');
     Route::post('/createRestaurant', [RestaurantController::class, 'store']);

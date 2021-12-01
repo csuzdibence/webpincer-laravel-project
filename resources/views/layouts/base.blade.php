@@ -11,6 +11,8 @@
 <body>
     @include('layouts._header')
     <main class="container p-5 mt-5"> 
+      @include('alerts._success')
+      @include('alerts._fail')
         @yield('content')
     </main>
     <div class="container">
